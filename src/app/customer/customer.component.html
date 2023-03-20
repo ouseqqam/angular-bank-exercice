@@ -1,0 +1,48 @@
+<div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    firstName
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    lastName
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    gender
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Address
+                </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let customer of customers">
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td class="px-6 py-4">
+                    {{customer.firstName}}
+                </td>
+                <td class="px-6 py-4">
+                    {{customer.lastName}}
+                </td>
+                <td class="px-6 py-4">
+                    {{customer.email}}
+                </td>
+                <td class="px-6 py-4">
+                    {{customer.gender}}
+                </td>
+                <td class="px-6 py-4">
+                    {{customer.address}}
+                </td>
+                <td>
+                    <button class="h-10 px-5 m-2 text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800">Edit</button>
+                </td>
+                <td>
+                    <button class="h-10 px-5 m-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800" (click)="delete(customer.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

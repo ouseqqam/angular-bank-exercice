@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-add-customer',
@@ -7,27 +8,36 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./add-customer.component.css']
 })
 export class AddCustomerComponent implements OnInit {
+  constructor (private customerService: AppService) {}
+  submited: boolean = false
   title: string = 'customerForm'
   customerForm!: FormGroup
 
   ngOnInit(): void {
     this.customerForm = new FormGroup({
-      'name': new FormControl(null),
+      'firstName': new FormControl(null),
+      'lastName': new FormControl(null),
       'address': new FormControl(null),
-      'phone number': new FormControl(null),
       'email': new FormControl(null),
-      'type': new FormControl(null)
+      'gender': new FormControl(null),
+      // 'type': new FormControl(null)
     })
   }
 
   onSubmit () {
-    console.log(this.customerForm)
-    this.customerForm = new FormGroup({
-      'name': new FormControl(null),
-      'address': new FormControl(null),
-      'phone number': new FormControl(null),
-      'email': new FormControl(null),
-      'type': new FormControl(null)
+    this.customerService.insertCustomer(this.customerForm.value).subscribe(value => {
+      console.log(value)
+      this.submited = !this.submited
+      setTimeout( () => {this.submited = !this.submited}, 3000)
+      this.customerForm = new FormGroup({
+        'name': new FormControl(null),
+        'address': new FormControl(null),
+        'phone number': new FormControl(null),
+        'email': new FormControl(null),
+        // 'type': new FormControl(null)
+      })
+    }, err => {
+      console.log(err)
     })
   }
 }
