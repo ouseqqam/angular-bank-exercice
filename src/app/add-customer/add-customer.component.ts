@@ -20,6 +20,7 @@ export class AddCustomerComponent implements OnInit {
       'address': new FormControl(null),
       'email': new FormControl(null),
       'gender': new FormControl(null),
+      'amount': new FormControl(null)
       // 'type': new FormControl(null)
     })
   }
@@ -30,10 +31,12 @@ export class AddCustomerComponent implements OnInit {
       this.submited = !this.submited
       setTimeout( () => {this.submited = !this.submited}, 3000)
       this.customerForm = new FormGroup({
-        'name': new FormControl(null),
+        'firstName': new FormControl(null),
+        'lastName': new FormControl(null),
         'address': new FormControl(null),
-        'phone number': new FormControl(null),
         'email': new FormControl(null),
+        'gender': new FormControl(null),
+        'amount': new FormControl(null)
         // 'type': new FormControl(null)
       })
     }, err => {

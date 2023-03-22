@@ -5,11 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomerComponent } from './customer/customer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { AppRoutingModule } from './app-routing.module'
+import { AppRoutingModule } from './app-routing.module';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component'
 
 @NgModule({
   declarations: [
@@ -17,13 +18,15 @@ import { AppRoutingModule } from './app-routing.module'
     AddCustomerComponent,
     DashboardComponent,
     CustomerComponent,
-    NavbarComponent
+    NavbarComponent,
+    EditCustomerComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
